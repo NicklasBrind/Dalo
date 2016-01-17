@@ -1,0 +1,10 @@
+{
+    "name": "Dalo",
+    "description": "Dalo web application",
+    "private": true,
+    "dependencies": {
+        "express": "*",
+        "jade" : "*"
+    },
+    "version": "1.0.0"
+}
