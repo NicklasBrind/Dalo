@@ -1,6 +1,39 @@
-doctype
-html
-    head
-        title #{title}
-    body
-        h1 #{msg}
+extends layout
+block content
+    nav
+        .logo
+            img(class="nav_logo", src="/images/logo.png")
+        .nav_menu  
+            .header
+                a(class="header_right", href="#") Login
+            ul
+                li
+                    a(class="nav_link", href="#") Nyheter
+                li
+                    a(class="nav_link", href="#") Kalender
+                li
+                    a(class="nav_link", href="#") Samarbetspartners
+                li
+                    a(class="nav_link nav_dropdown", href="#") Föreningen
+                        span(class="arrow-down")
+                    ul
+                        li
+                            a(class="nav_link", href="#") Bli medlem
+                        li
+                            a(class="nav_link", href="#") Stadgar
+                        li
+                            a(class="nav_link", href="#") Styrelsen
+                        li
+                            a(class="nav_link", href="#") Utskott
+                        li
+                            a(class="nav_link", href="#") Om
+                li
+                    a(class="nav_link", href="#") Portfolios 
+                li
+                    a(class="nav_link nav_dropdown", href="#") Rookieperioden 
+                        span(class="arrow-down")
+                    ul
+                        li
+                            a(class="nav_link", href="#") Sånger
+                        li
+                            a(class="nav_link", href="#") Kontakt
