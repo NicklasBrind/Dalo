@@ -7,7 +7,7 @@ var http = require("http").Server(app);
 
 //routes
 var index = require("./routes/index.js")(router);
-
+var login = require("./routes/login.js")(router);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use("/", index);
+app.use("/login", login);
 
 app.use(function(request, response, next){
    response.status(404).send("Error 404: Page could not be found!");
