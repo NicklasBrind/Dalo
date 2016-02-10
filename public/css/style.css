@@ -4,31 +4,26 @@ body {
     background-color: #fcfcfe;
     text-align: center;
 }
-
 nav {
     width: 768px;
     margin: 0 auto;
 }
-
-.nav_menu {
-    margin-top: 50px;
+.header_bottom {
     text-align: left;
     display: inline-block;
+    height: 120px;
 }
-
-
-.nav_menu > ul, li {
+.header_bottom > ul, li {
     list-style: none;
     display: block;
     margin: 0px;
     padding: 0px;
 }
-.nav_menu > ul > li {
+.header_bottom > ul > li {
     float: left;
     padding: 8px;
 }
-
-.nav_menu > ul > li > ul {
+.header_bottom > ul > li > ul {
     display: none;
     font-size: 0.9em;
     color: #333;
@@ -37,21 +32,15 @@ nav {
     box-shadow: 2px 2px 10px #999;
     border-radius: 2px;
 }
-
-.nav_menu > ul > li:hover > ul{
+.header_bottom > ul > li:hover > ul{
     display: block;
 }
-
-
 .nav_link  {
     text-decoration: none;
     color: #000;
 }
-
-.nav_dropdown {
-    
+.nav_dropdown {   
 }
-
 .arrow-down::after {
     content: '\25bc';
     padding-left: 0.25em;
@@ -61,16 +50,22 @@ nav {
 .logo {
     width:100px;
     float:left;
+    padding: 10px;
 }
-
 .nav_logo {
     width: 100px;
     height: auto;
     display: block;
 }
-.header {
+.header_top>* {
+    text-decoration: none;
+    font-size: 0.8em;
+    color: #000;
+    margin: 10px;
 }
-
+.header_bottom {
+    margin-top: 10px;
+}
 .header_right {
     display:block;
     float:right;
