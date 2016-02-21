@@ -4,26 +4,61 @@ body {
     background-color: #fcfcfe;
     text-align: center;
 }
+
+/*
+ * Nav shape
+ */
 nav {
     width: 768px;
+    height: 84px;
     margin: 0 auto;
+    margin-top: 10px;
 }
-.header_bottom {
+.nav_menu {
+    float: right;
+    width: 668px;
+    height: auto;
+}
+.nav_logo {
+    float: left;
+    width:100px;
+}
+.nav_menu_bottom {
     text-align: left;
     display: inline-block;
-    height: 120px;
+    float: right;
 }
-.header_bottom > ul, li {
+.nav_menu_top {
+    display: inline-block;
+    float:right;
+    height: 25px;
+}
+/*
+ * End Nav shape
+ */
+
+
+
+/*
+ * Nav styling
+ */
+.nav_menu_top>* {
+    text-decoration: none;
+    font-size: 0.8em;
+    color: #000;
+    margin: 10px;
+}
+.nav_menu_bottom > ul, li {
     list-style: none;
     display: block;
     margin: 0px;
     padding: 0px;
 }
-.header_bottom > ul > li {
+.nav_menu_bottom > ul > li {
     float: left;
     padding: 8px;
 }
-.header_bottom > ul > li > ul {
+.nav_menu_bottom > ul > li > ul {
     display: none;
     font-size: 0.9em;
     color: #333;
@@ -32,14 +67,18 @@ nav {
     box-shadow: 2px 2px 10px #999;
     border-radius: 2px;
 }
-.header_bottom > ul > li:hover > ul{
+.nav_menu_bottom > ul > li:hover > ul{
     display: block;
 }
-.nav_link  {
+.nav_link, .nav_sublink {
     text-decoration: none;
     color: #000;
 }
-.nav_dropdown {   
+.nav_link:hover {
+    border-top: 4px #ffe13a solid;    
+}
+.nav_sublink:hover {
+    border-left: 3px #ffe13a solid;    
 }
 .arrow-down::after {
     content: '\25bc';
@@ -48,25 +87,13 @@ nav {
     color: #333333
 }
 .logo {
-    width:100px;
-    float:left;
-    padding: 10px;
-}
-.nav_logo {
     width: 100px;
     height: auto;
     display: block;
 }
-.header_top>* {
-    text-decoration: none;
-    font-size: 0.8em;
-    color: #000;
-    margin: 10px;
+.nav_link_selected {
+    border-top: 4px #ffe13a solid;
 }
-.header_bottom {
-    margin-top: 10px;
-}
-.header_right {
-    display:block;
-    float:right;
-}
+/*
+ * End Nav styling
+ */

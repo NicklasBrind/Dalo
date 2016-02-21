@@ -1,15 +1,15 @@
 extends layout
 block content
     nav
-        .logo
-            img(class="nav_logo", src="/images/logo.png")
+        .nav_logo
+            img(class="logo", src="/images/logo.png")
         .nav_menu  
-            .header_top
-                a(class="header_right", href="#") Login
-            .header_bottom
+            .nav_menu_top
+                a(class="nav_menu_top_login", href="#") Login
+            .nav_menu_bottom
                 ul
                     li
-                        a(class="nav_link", href="#") Nyheter
+                        a(class="nav_link nav_link_selected", href="#") Nyheter
                     li
                         a(class="nav_link", href="#") Kalender
                     li
@@ -19,15 +19,15 @@ block content
                             span(class="arrow-down")
                         ul
                             li
-                                a(class="nav_link", href="#") Bli medlem
+                                a(class="nav_sublink", href="#") Bli medlem
                             li
-                                a(class="nav_link", href="#") Stadgar
+                                a(class="nav_sublink", href="#") Stadgar
                             li
-                                a(class="nav_link", href="#") Styrelsen
+                                a(class="nav_sublink", href="#") Styrelsen
                             li
-                                a(class="nav_link", href="#") Utskott
+                                a(class="nav_sublink", href="#") Utskott
                             li
-                                a(class="nav_link", href="#") Om
+                                a(class="nav_sublink", href="#") Om
                     li
                         a(class="nav_link", href="#") Portfolios 
                     li
@@ -35,6 +35,6 @@ block content
                             span(class="arrow-down")
                         ul
                             li
-                                a(class="nav_link", href="#") Sånger
+                                a(class="nav_sublink", href="#") Sånger
                             li
-                                a(class="nav_link", href="#") Kontakt
+                                a(class="nav_sublink", href="#") Kontakt
