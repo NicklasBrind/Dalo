@@ -1,0 +1,9 @@
+body {
+    font-family: 'Helvetica Neue', 'Ubuntu', 'Helvetica';
+    margin: 0px;
+    background-color: #fcfcfe;
+    text-align: center;
+}
+.container {
+    margin-top: 10px;
+}
