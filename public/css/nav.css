@@ -4,35 +4,35 @@
  * Nav shape
  */
 nav {
-    width: 800px;
     height: 84px;
     margin-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 .nav_menu {
     float: right;
-    width: 700px;
+    width: 85%;
     height: auto;
 }
 .nav_logo {
+    height: 15%;
     float: left;
-    width:100px;
 }
 .nav_menu_bottom {
+    height: auto;
     text-align: left;
     display: inline-block;
     float: right;
+    width: 100%;
 }
 .nav_menu_top {
     display: inline-block;
-    float:right;
-    height: 25px;
+    float: right;
+    height: 24px;
+    width: 100%;
 }
 /*
  * End Nav shape
  */
-
-
 
 /*
  * Nav styling
@@ -42,6 +42,10 @@ nav {
     font-size: 0.8em;
     color: #000;
     margin: 10px;
+    float: right;
+}
+.nav_menu_bottom > ul {
+    float: right;
 }
 .nav_menu_bottom > ul, li {
     list-style: none;
