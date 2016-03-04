@@ -6,8 +6,8 @@
 nav {
     width: 800px;
     height: 84px;
-    margin: 0 auto;
     margin-top: 10px;
+    padding-bottom: 20px;
 }
 .nav_menu {
     float: right;
