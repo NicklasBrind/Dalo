@@ -21,7 +21,7 @@ app.use(function(request, response, next){
 
 // Inte så säkert att ha informationen här
 var connection = mysql.createConnection({
-    host : '193.11.137.144',
+    host : '193.11.129.231',
     port : '3300',
     user : 'dalo',
     password : 'hemsidebygge',
