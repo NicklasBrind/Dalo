@@ -24,7 +24,7 @@ var connection = mysql.createConnection({
     host : '193.11.137.144',
     port : '3300',
     user : 'dalo',
-    password : 'homersimpson',
+    password : 'hemsidebygge',
     database : 'hamburger',
 });
 
@@ -34,5 +34,5 @@ connection.connect(function(err){
 });
 
 http.listen(3000, function(){
-   console.log("Server is running on port: 3000"); 
+   console.log("Server is running on port: 3000");
 });
