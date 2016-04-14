@@ -6,7 +6,7 @@ var mysql = require("mysql")
 var http = require("http").Server(app);
 
 // Routes
-require("./routes/routes.js")(router);
+require("./routes/routes.js")(router, app);
 app.use("/", router);
 
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +32,8 @@ connection.connect(function(err){
     if(!err) { console.log("Database connection SUCCESSFUL...");}
     else { console.log("Database connection FAILED... "); }
 });
+
+app.set('client', connection);
 
 http.listen(3000, function(){
    console.log("Server is running on port: 3000");

@@ -1,12 +1,14 @@
 {
-    "name": "dalo",
-    "description": "Dalo web application",
-    "private": true,
-    "dependencies": {
-        "express": "*",
-        "jade" : "*",
-        "nodemon" : "*",
-        "mysql" : "*"
-    },
-    "version": "0.0.1"
+  "name": "dalo",
+  "description": "Dalo web application",
+  "private": true,
+  "dependencies": {
+    "dateformat": "^1.0.12",
+    "express": "*",
+    "fb": "^1.0.2",
+    "jade": "*",
+    "mysql": "*",
+    "nodemon": "*"
+  },
+  "version": "0.0.1"
 }

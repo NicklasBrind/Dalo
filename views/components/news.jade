@@ -1,0 +1,16 @@
+.news-content
+    .news-posts
+        each val, index in news
+            .news-post
+                h2=news[index].title
+                p=news[index].content
+                p="Publisher: " + news[index].publisher
+                p=news[index].date
+    .news-social-media
+        each val, index in fbfeed.data
+            .fb-feed
+                h2=fbfeed.data[index].message
+                
+                
+                
+                
