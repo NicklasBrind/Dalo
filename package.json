@@ -8,6 +8,7 @@
     "fb": "^1.0.2",
     "jade": "*",
     "mysql": "*",
+    "mysql-queues": "^1.0.0",
     "nodemon": "*"
   },
   "version": "0.0.1"
