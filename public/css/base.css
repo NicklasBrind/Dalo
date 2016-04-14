@@ -2,6 +2,7 @@ body {
     font-family: 'Helvetica Neue', 'Ubuntu', 'Helvetica';
     margin: 0px;
     background-color: #fcfcfe;
+    overflow-y: scroll;
 }
 .container {
     margin-top: 10px;
