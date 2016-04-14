@@ -3,30 +3,56 @@ var FB = require('fb');
 FB.setAccessToken('770450599721631|9e89b9476b14a1c908583a6fb6636bd8');
 
 /**
- * Functions GETs facebook feed
- *
  *
  */
-function getFacebookFeed(client, response, fetchedNews) {
+function getLoginNavigation(client, request, response, data) {
+    // TODO: add login check
+    var loggedIn = true;
+    var navigation = [];
+    if (loggedIn) {
+        navigation.push( {link: "logout", href: "/logout"} );
+        navigation.push( {link: "wiki", href: "/wiki"} );
+        
+        // TODO: add admin check
+        var isAdmin = true;
+        if (isAdmin) {
+            navigation.push( {link: "admin", href: "/admin"} );
+        }
+    } else {
+        navigation.push( {link: "login", href: "/login"} );
+    }
+    
+    
+    
+    return response.render('index', {
+                title: 'News - Dalo',
+                login_nav: navigation,
+                news: data.fetchedNews,
+                fbfeed: data.fbresponse
+            });
+}
+
+/**
+ * Functions GETs facebook feed
+ */
+function getFacebookFeed(client, request, response, fetchedNews) {
     FB.api(
         '/dalomotors/posts',
         'GET',
         {},
         function(fbresponse) {
-            return response.render('index', {
-                title: 'News - Dalo',
-                news: fetchedNews,
-                fbfeed: fbresponse
-            });
+            var data = {fbresponse: fbresponse, fetchedNews: fetchedNews};
+            getLoginNavigation(client, request, response, data);
         });
 }
 
 /**
  * Function querys database for news
  * @parameter client: the mysql connection
+ * @parameter response:
  * @returns query as JSON
  */
-function fetchNews(client, response, callback){
+function fetchNews(client, request, response){
     
     // Query database
     var query = "SELECT * FROM view_fetch_news";
@@ -50,15 +76,14 @@ function fetchNews(client, response, callback){
                 date: myDate});
         }
         
-        callback(client, response, fetchedNews);
+        getFacebookFeed(client, request, response, fetchedNews);
     })
     
 }
 
 module.exports = function(router, app){
-
     router.get('/', function(request, response, next){
-        fetchNews(app.get('client'), response, getFacebookFeed);
+        fetchNews(app.get('client'), request, response);
         
         //return response.render('index', { title: 'Dalo', msg : "Här loggar man  yo"});
     });
