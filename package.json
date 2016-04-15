@@ -9,7 +9,8 @@
     "jade": "*",
     "mysql": "*",
     "mysql-queues": "^1.0.0",
-    "nodemon": "*"
+    "nodemon": "*",
+    "simple-barrier": "^1.0.4"
   },
   "version": "0.0.1"
 }

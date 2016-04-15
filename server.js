@@ -14,6 +14,9 @@ app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// MySQL queues debug variable
+app.set('debugq', true);
+
 app.use(function(request, response, next){
    response.status(404).send("Error 404: Page could not be found!");
 });
