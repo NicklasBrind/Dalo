@@ -4,22 +4,46 @@ var news = require('./modules/news-module.js');
 
 module.exports = function(router, app){
     router.get('/', function(request, response, next){
+        
+        // Create an async barrier
         var barrier = simpleBarrier()
         var client = app.get('client');
         
+        // Get all data from modules async, and make barrier wait for them
+        news.getNews(client, barrier.waitOn());
+        news.getFacebookPosts(client, barrier.waitOn(), "dalomotors");
+        navigation.getLoginNavigation(client, barrier.waitOn());
         
-        
-        news.getNews(client, barrier.waitOn);
-        news.getFacebookPosts(client, barrier.waitOn);
-        navigation.getLoginNavigation(client, barrier.waitOn, "dalomotors");
-        // TODO: barrier nås aldrig. #######################################################################
-        // TODO: Ifall resultaten kommer i annan ordning blir det fel.
         barrier.endWith(function(results) {
+            
+            // Since results are stored in unknown order in "results",
+            // we need to iterate through the values and confirm them
+            // So we can send them corrently in response.render below
+            var fetchedNews;
+            var fbresponse;
+            var navigation;
+            
+            for (var i = 0;i < results.length; i++) {
+                if (results[i].fetchedNews != null) {
+                    fetchedNews = results[i].fetchedNews;
+                    console.log(fetchedNews);
+                }
+                if (results[i].fbresponse != null) {
+                    fbresponse = results[i].fbresponse;
+                    console.log(fbresponse);
+                }
+                if (results[i].navigation != null) {
+                    navigation = results[i].navigation;
+                    console.log(navigation);
+                }
+            }
+            
+            // Render page and send data
             return response.render('index', {
                 title: 'News - Dalo',
-                news: results[0].fetchedNews,
-                fbfeed: results[1].fbresponse,
-                login_nav: results[2].navigation
+                news: fetchedNews,
+                fbfeed: fbresponse,
+                login_nav: navigation
             });
         });
     });
