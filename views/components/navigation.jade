@@ -3,9 +3,12 @@ nav
         img(class="logo", src="/images/logo.png")
     .nav_menu  
         .nav_menu_top
-        
+            p |
             each val, index in login_nav
-                a(class="nav_menu_top_login", href=login_nav[index].href)=login_nav[index].link
+                i(class="material-icons", style="margin: 0; margin-top: 5px; padding: 0; font-size: 1.5em;")=login_nav[index].micon
+                a(class="nav_menu_top_login", href=login_nav[index].href)=login_nav[index].link 
+                p |
+
         .nav_menu_bottom
             ul
                 li
@@ -46,7 +49,7 @@ nav
                         span(class="arrow-down")
                     ul
                         li
-                            a(class="nav_sublink", href="http://studentwikin.se/index.php?title=Kategori:Students%C3%A5nger", target="_blank") 
+                            a(class="nav_sublink", href="/songs") 
                                 span(class="main-nav-item") Sånger
                         li
                             a(class="nav_sublink", href="/rookie_about") 

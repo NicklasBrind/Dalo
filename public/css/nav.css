@@ -1,5 +1,3 @@
-
-
 /*
  * Nav shape
  */
@@ -39,9 +37,9 @@ nav {
  */
 .nav_menu_top>* {
     text-decoration: none;
-    font-size: 0.8em;
+    font-size: 0.85em;
     color: #000;
-    margin: 10px;
+    margin: 9px;
     float: right;
 }
 .nav_menu_bottom > ul {

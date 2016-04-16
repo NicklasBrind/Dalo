@@ -1,3 +1,5 @@
+var navigation = require('./modules/navigation-module');
+
 var fs = require('fs');
 
 module.exports = function(router, app){

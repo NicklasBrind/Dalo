@@ -1,11 +1,29 @@
-var rookie = function(router){
+var navigation = require('./modules/navigation-module');
+
+var rookie = function(router, app){
     
     router.get('/rookieperiod', function(request, response, next){
-        return response.render('rookieperiod', { title: 'Dalo', msg : "Här loggar man  yo"});
+        // Get client
+        var client = app.get('client');
+        navigation.getLoginNavigation(client, function(err, results) {
+            // Render page and send data
+            return response.render('rookieperiod', {
+                title: 'Rookieperiod - Dalo',
+                login_nav: results.navigation
+            });
+        });    
     });
     
     router.get('/rookie_about', function(request, response, next){
-        return response.render('rookie_about', { title: 'Dalo', msg : "Här loggar man  yo"});
+        // Get client
+        var client = app.get('client');
+        navigation.getLoginNavigation(client, function(err, results) {
+            // Render page and send data
+            return response.render('rookie_about', {
+                title: 'Rookieperiod - About - Dalo',
+                login_nav: results.navigation
+            });
+        });    
     });
     
     return router;

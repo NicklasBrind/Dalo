@@ -1,5 +1,5 @@
 body {
-    font-family: 'Helvetica Neue', 'Ubuntu', 'Helvetica';
+    font-family: 'Helvetica Neue', 'Ubuntu', 'Helvetica' !important;
     margin: 0px;
     background-color: #fcfcfe;
     overflow-y: scroll;
@@ -8,6 +8,9 @@ body {
     margin-top: 10px;
     width: 800px !important;
     margin: 0 auto;
+    
+    /* bootstrap override */
+    list-style: circle !important;
 }
 .carousel-inner > .item > img {
     margin: 0 auto;

@@ -5,8 +5,8 @@ var news = require('./modules/news-module.js');
 module.exports = function(router, app){
     router.get('/', function(request, response, next){
         
-        // Create an async barrier
-        var barrier = simpleBarrier()
+        // Create a barrier
+        var barrier = simpleBarrier();
         var client = app.get('client');
         
         // Get all data from modules async, and make barrier wait for them
@@ -26,15 +26,12 @@ module.exports = function(router, app){
             for (var i = 0;i < results.length; i++) {
                 if (results[i].fetchedNews != null) {
                     fetchedNews = results[i].fetchedNews;
-                    console.log(fetchedNews);
                 }
                 if (results[i].fbresponse != null) {
                     fbresponse = results[i].fbresponse;
-                    console.log(fbresponse);
                 }
                 if (results[i].navigation != null) {
                     navigation = results[i].navigation;
-                    console.log(navigation);
                 }
             }
             
