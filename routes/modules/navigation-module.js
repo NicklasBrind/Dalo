@@ -16,7 +16,7 @@ module.exports = {
             // TODO: add admin check
             var isAdmin = true;
             if (isAdmin) {
-                navigation.push( {link: "admin", href: "/admin", micon: "supervisor_account"} );
+                navigation.push( {link: "admin", href: "/admin", micon: "build"} );
             }
         } else {
             navigation.push( {link: "login", href: "/login", micon: "exit_to_app"} );
