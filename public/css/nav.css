@@ -93,6 +93,10 @@ nav {
 .nav_link_selected {
     border-top: 4px #ffe13a solid;
 }
+.link-position{
+    display: block;
+    float: left;
+}
 /*
  * End Nav styling
  */

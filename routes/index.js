@@ -19,9 +19,9 @@ module.exports = function(router, app){
             // Since results are stored in unknown order in "results",
             // we need to iterate through the values and confirm them
             // So we can send them corrently in response.render below
-            var fetchedNews;
-            var fbresponse;
-            var navigation;
+            var fetchedNews = [];
+            var fbresponse = [];
+            var navigation = [];
             
             for (var i = 0;i < results.length; i++) {
                 if (results[i].fetchedNews != null) {
