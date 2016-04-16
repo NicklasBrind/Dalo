@@ -11,9 +11,9 @@ module.exports = {
      */
     getNews: function(client, callback){
     
-    // Query database
-    var query = "SELECT * FROM view_fetch_news";
-    client.query(query, function(err, rows, fields){
+        // Query database
+        var query = "SELECT * FROM view_fetch_news";
+        client.query(query, function(err, rows, fields){
             var fetchedNews = [];
             /*
             JSON Structure
@@ -32,7 +32,8 @@ module.exports = {
                     publisher: rows[i].first_name, 
                     date: myDate});
             }
-            callback("err", {"fetchedNews": fetchedNews});
+            
+            callback(null, {"fetchedNews": fetchedNews});
         })
     },
     
@@ -48,7 +49,7 @@ module.exports = {
         'GET',
         {},
         function(fbresponse) {
-            callback("err", {"fbresponse": fbresponse});
+            callback(null, {"fbresponse": fbresponse});
         });
 }
     

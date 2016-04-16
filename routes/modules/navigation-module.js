@@ -21,7 +21,8 @@ module.exports = {
         } else {
             navigation.push( {link: "login", href: "/login", micon: "exit_to_app"} );
         }
-        callback("err", {"navigation": navigation});
+        
+        callback(null, {"navigation": navigation});
     }
 }
     
