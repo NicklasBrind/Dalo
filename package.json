@@ -3,14 +3,12 @@
   "description": "Dalo web application",
   "private": true,
   "dependencies": {
+    "async": "^2.0.0-rc.3",
     "dateformat": "^1.0.12",
     "express": "*",
     "fb": "^1.0.2",
     "jade": "*",
-    "mysql": "*",
-    "mysql-queues": "^1.0.0",
-    "nodemon": "*",
-    "simple-barrier": "^1.0.4"
+    "mysql": "*"
   },
   "version": "0.0.1"
 }
