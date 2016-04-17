@@ -1,9 +1,8 @@
 module.exports = {
     /**
      * Gets the member login bar
-     * @parameter client:
-     * @parameter callback:
-     * @returns nothing
+     * @param  {Object} client - The mysql connection
+     * @param  {requestCallback} callback - (error, data)
      */
     getLoginNavigation: function (client, callback) {
         // TODO: add login check

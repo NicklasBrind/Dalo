@@ -7,10 +7,8 @@
                 p="Publisher: " + news[index].publisher
                 p=news[index].date
     .news-social-media
-        each val, index in fbfeed.data
+        img(src=facebook.picture, style="vertical-align:middle;")
+        h2(style="padding: 5px;display:inline;")=facebook.name
+        each val, index in facebook.posts.data
             .fb-post
-                h2=fbfeed.data[index].message
-                
-                
-                
-                
+                p=facebook.posts.data[index].message

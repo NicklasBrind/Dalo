@@ -6,8 +6,8 @@ module.exports = {
 
     /**
      * Function querys database for news
-     * @parameter client: the mysql connection
-     * @callback (error, returned data)
+     * @param  {Object} client - The mysql connection
+     * @param  {requestCallback} callback - (error, data)
      */
     getNews: function(client, callback){
     
@@ -39,33 +39,31 @@ module.exports = {
     
     /**
      * Functions GETs facebook pages feed
-     * @param  {Object} client - The mysql connection
      * @param  {requestCallback} callback - (error, data)
      * @param  {string} pagename - Facebook pagename
      */
-    getFacebookPagePosts: function(client, callback, pagename) {
+    getFacebookPagePosts: function(callback, pagename) {
         FB.api(
             '/' + pagename + '/posts',
             'GET',
             {},
-            function(fbresponse) {
-                callback(null, fbresponse);
+            function(response) {
+                if (response && !response.error) {
+                    callback(null, response);                    
+                }
+                else {
+                    console.log(response.error);
+                }
             });
     },
     
     /**
      * Functions GETs facebook pages picture
-     * @param  {Object} client - The mysql connection
      * @param  {requestCallback} callback - (error, data)
      * @param  {string} pagename - Facebook pagename
      */
-    getFacebookPagePicture: function(client, callback, pagename) {
-        FB.api(
-            '/' + pagename + '/picture',
-            'GET',
-            {},
-            function(fbresponse) {
-                callback(null, fbresponse);
-            });
+    getFacebookPagePicture: function(callback, pagename) {
+        var imagePath = 'https://graph.facebook.com/' + pagename + '/picture';
+        callback(null, imagePath);
     }
 };

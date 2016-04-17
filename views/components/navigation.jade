@@ -3,6 +3,12 @@ nav
         img(class="logo", src="/images/logo.png")
     .nav_menu  
         .nav_menu_top
+            a(href="#", style="margin: 0; padding: 0; display: none;")
+                i(class="flaticon-picture", style="margin: 0; padding: 0px; font-size: 1.5em;")
+            a(href="https://twitter.com/dalomdh", target="_blank", style="margin: 0; padding: 0")
+                i(class="flaticon-social-media-1", style="margin: 0; padding: 0px; font-size: 1.5em;")
+            a(href="https://www.facebook.com/datalogiforeningen", target="_blank", style="margin: 0; padding: 0") 
+                i(class="flaticon-social-media-3", style="margin: 0; padding: 0px; font-size: 1.5em;")
             p |
             each val, index in login_nav
                 a(class="nav_menu_top_login", href=login_nav[index].href)
