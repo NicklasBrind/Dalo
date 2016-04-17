@@ -15,3 +15,8 @@ body {
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, 
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-size: 1em !important;
+}

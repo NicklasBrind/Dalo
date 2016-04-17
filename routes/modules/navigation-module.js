@@ -9,16 +9,18 @@ module.exports = {
         var loggedIn = true;
         var navigation = [];
         if (loggedIn) {
-            navigation.push( {link: "logout", href: "/logout", micon: "directions_run"} );
-            navigation.push( {link: "wiki", href: "/wiki", micon: "language"} );
-
+            // Material icons are found here: https://design.google.com/icons/
+            navigation.push( {link: "logout", href: "/logout", materialicon: "directions_run"} );
+            navigation.push( {link: "profile", href: "/profile", materialicon: "account_box"} );
+            navigation.push( {link: "wiki", href: "/wiki", materialicon: "language"} );
+            
             // TODO: add admin check
             var isAdmin = true;
             if (isAdmin) {
-                navigation.push( {link: "admin", href: "/admin", micon: "build"} );
+                navigation.push( {link: "admin", href: "/admin", materialicon: "build"} );
             }
         } else {
-            navigation.push( {link: "login", href: "/login", micon: "exit_to_app"} );
+            navigation.push( {link: "login", href: "/login", materialicon: "exit_to_app"} );
         }
         
         callback(null, navigation);

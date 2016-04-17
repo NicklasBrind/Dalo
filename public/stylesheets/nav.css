@@ -53,7 +53,7 @@ nav {
 }
 .nav_menu_bottom > ul > li {
     float: left;
-    padding: 8px;
+    padding: 12px 0 8px 16px;
 }
 .nav_menu_bottom > ul > li > ul {
     display: none;

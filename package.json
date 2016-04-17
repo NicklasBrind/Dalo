@@ -8,7 +8,9 @@
     "express": "*",
     "fb": "^1.0.2",
     "jade": "*",
-    "mysql": "*"
+    "mysql": "*",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "version": "0.0.1"
 }
