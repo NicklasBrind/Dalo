@@ -1,7 +1,6 @@
 var navigation = require('./modules/navigation-module');
 
 module.exports = function(router, app){
-    
     router.get('/about', function(request, response, next){
         // Get client
         var client = app.get('client');
@@ -9,10 +8,10 @@ module.exports = function(router, app){
             // Render page and send data
             return response.render('about', {
                 title: 'About - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });
     });
     
     return router;
-}
+};

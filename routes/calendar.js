@@ -8,7 +8,7 @@ module.exports = function(router, app){
             // Render page and send data
             return response.render('calendar', {
                 title: 'Calendar - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });    
     });

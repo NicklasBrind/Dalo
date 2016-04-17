@@ -22,7 +22,7 @@ module.exports = {
             navigation.push( {link: "login", href: "/login", micon: "exit_to_app"} );
         }
         
-        callback(null, {"navigation": navigation});
+        callback(null, navigation);
     }
-}
+};
     

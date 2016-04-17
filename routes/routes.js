@@ -10,4 +10,4 @@ module.exports = function(router, app){
         require('./' + name)(router, app);
         console.log('./' + name);
     });
-}
+};

@@ -8,7 +8,6 @@ reg = reg[0];
 
 var regLink = reg.lastChild;
 
-
 loginLink.addEventListener("click", function(e){
     e.preventDefault();
     login.style.display = "none";

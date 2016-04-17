@@ -8,10 +8,10 @@ module.exports = function(router, app){
             // Render page and send data
             return response.render('partners', {
                 title: 'Partners - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });    
     });
     
     return router;
-}
+};

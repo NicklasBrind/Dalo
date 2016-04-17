@@ -33,26 +33,39 @@ module.exports = {
                     date: myDate});
             }
             
-            callback(null, {"fetchedNews": fetchedNews});
-        })
+            callback(null, fetchedNews);
+        });
     },
     
     /**
-     * Functions GETs facebook feed
-     * @parameter client: the mysql connection
-     * @callback (error, returned data)
-     * @parameter pagename: the name of the facebook page
+     * Functions GETs facebook pages feed
+     * @param  {Object} client - The mysql connection
+     * @param  {requestCallback} callback - (error, data)
+     * @param  {string} pagename - Facebook pagename
      */
-    getFacebookPosts: function(client, callback, pagename) {
-    FB.api(
-        '/' + pagename + '/posts',
-        'GET',
-        {},
-        function(fbresponse) {
-            callback(null, {"fbresponse": fbresponse});
-        });
-}
+    getFacebookPagePosts: function(client, callback, pagename) {
+        FB.api(
+            '/' + pagename + '/posts',
+            'GET',
+            {},
+            function(fbresponse) {
+                callback(null, fbresponse);
+            });
+    },
     
-}
-    
-    
+    /**
+     * Functions GETs facebook pages picture
+     * @param  {Object} client - The mysql connection
+     * @param  {requestCallback} callback - (error, data)
+     * @param  {string} pagename - Facebook pagename
+     */
+    getFacebookPagePicture: function(client, callback, pagename) {
+        FB.api(
+            '/' + pagename + '/picture',
+            'GET',
+            {},
+            function(fbresponse) {
+                callback(null, fbresponse);
+            });
+    }
+};

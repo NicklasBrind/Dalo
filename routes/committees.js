@@ -8,7 +8,7 @@ module.exports = function(router, app){
             // Render page and send data
             return response.render('committees', {
                 title: 'Committees - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });    
     });

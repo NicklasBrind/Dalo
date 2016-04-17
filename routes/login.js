@@ -9,4 +9,4 @@ module.exports = function(router, app){
     });
     
     return router;
-}
+};

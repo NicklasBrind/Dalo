@@ -9,7 +9,7 @@ var rookie = function(router, app){
             // Render page and send data
             return response.render('rookieperiod', {
                 title: 'Rookieperiod - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });    
     });
@@ -21,12 +21,12 @@ var rookie = function(router, app){
             // Render page and send data
             return response.render('rookie_about', {
                 title: 'Rookieperiod - About - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });    
     });
     
     return router;
-}
+};
 
 module.exports = rookie;

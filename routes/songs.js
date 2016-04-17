@@ -9,10 +9,10 @@ module.exports = function(router, app){
             // Render page and send data
             return response.render('songs', {
                 title: 'Songs - Dalo',
-                login_nav: results.navigation
+                login_nav: results
             });
         });
     });
     
     return router;
-}
+};
