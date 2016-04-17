@@ -16,6 +16,10 @@ body {
     margin: 0 auto;
 }
 
+ul {
+    margin-left: 10px;
+}
+
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, 
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
     font-size: 1em !important;

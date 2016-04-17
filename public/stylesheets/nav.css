@@ -45,7 +45,7 @@ nav {
 .nav_menu_bottom > ul {
     float: right;
 }
-.nav_menu_bottom > ul, li {
+.nav_menu_bottom > ul, .nav_menu_buttom > ul > li {
     list-style: none;
     display: block;
     margin: 0px;
@@ -56,6 +56,8 @@ nav {
     padding: 12px 0 8px 16px;
 }
 .nav_menu_bottom > ul > li > ul {
+    margin: 0;
+    list-style: none;
     display: none;
     font-size: 0.9em;
     color: #333;
