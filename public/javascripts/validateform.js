@@ -72,6 +72,25 @@ class TextValidator extends InputValidator{
   
 }
 
+class SsnValidator extends InputValidator{
+    
+    constructor(element, maxLength, minLength){
+        super(element, maxLength, minLength);
+    }
+    
+    validate(){
+        super.validateRequired();
+        super.validateFormat(config.ssnRegex);
+    }
+    listen(){
+        var self = this;
+        this.element.addEventListener("blur", function(){
+            self.validate();
+        }, true)
+    }
+}
+}
+
 class EmailValidator extends InputValidator{
     constructor(element, maxLength, minLength){
         super(element, maxLength, minLength);
@@ -81,7 +100,14 @@ class EmailValidator extends InputValidator{
         super.validateMaxLength();
         super.validateFormat(config.emailRegex);
     }
+    listen(){
+        var self = this;
+        this.element.addEventListener("blur", function(){
+            self.validate();
+        }, true)
+    }
 }
+
 
 var config ={
     maxLength : 45,
@@ -94,11 +120,16 @@ var config ={
 }
 
 var form = document.getElementsByClassName("register-form")[0];
-//var firstname = new TextValidator(form.elements.firstname, 4, 4);
-//firstname.element.addEventListener("onblur", func, true);
+
+
 var firstname = new TextValidator(form.elements.firstname, config.maxLength, config.minLength);
 var lastname = new TextValidator(form.elements.lastname, config.maxLength, config.minLength);
+var nickname = new textValidator(form.elements.lastname, config.maxLength, config.minLength);
+var ssn = new SsnValidator(form.elemnts.ssn, config.maxLength, config.minLength);
+var email = new EmailValidator(form.elements.email, config.maxLength, config.minLength);
 
-firstname.listen();
-lastname.listen();
+var validatorArray = [firstname, lastname, nickname, ssn, email]
 
+for(var i = 0; i < validatorArray.length; i++){
+    validatorArray[i].listen;
+}
