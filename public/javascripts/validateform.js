@@ -32,6 +32,11 @@ class InputValidator{
         
     validateMaxLength(){
         console.log(this.element.value);
+        if(this.element.value.length > this.maxLength){
+            
+            this.errorEvent();
+            return false;
+        }
      
     }
         
@@ -63,7 +68,6 @@ var form = document.getElementsByClassName("register-form")[0];
 //var firstname = new TextValidator(form.elements.firstname, 4, 4);
 //firstname.element.addEventListener("onblur", func, true);
 var firstname = new TextValidator(form.elements.firstname, 4, 4);
-firstname.validate();
 
 firstname.element.addEventListener("blur", function(){
     firstname.validate();
