@@ -1,4 +1,5 @@
 "use strict";
+
 class InputValidator{
     constructor(element, maxLength, minLength){
         var self = this;
@@ -7,6 +8,8 @@ class InputValidator{
         this.minLength = minLength || 0;
     }
     validate(){}
+    
+    eventListener(){}
     
     validateRequired(){
         if (this.element.value === null || this.element.value === "") {
@@ -60,6 +63,12 @@ class TextValidator extends InputValidator{
         super.validateRequired();
         super.validateMaxLength();   
     }
+    listen(){
+        var self = this;
+        this.element.addEventListener("blur", function(){
+            self.validate();
+        }, true)
+    }
   
 }
 
@@ -74,9 +83,9 @@ class EmailValidator extends InputValidator{
     }
 }
 
-config ={
+var config ={
     maxLength : 45,
-    mnLength : 0,
+    minLength : 0,
     passwordMinLength : 10,
     zipcodeMaxLength : 11,
     phoneNumberMaxLength : 11,
@@ -87,10 +96,9 @@ config ={
 var form = document.getElementsByClassName("register-form")[0];
 //var firstname = new TextValidator(form.elements.firstname, 4, 4);
 //firstname.element.addEventListener("onblur", func, true);
-var firstname = new TextValidator(form.elements.firstname, 4, 4);
+var firstname = new TextValidator(form.elements.firstname, config.maxLength, config.minLength);
+var lastname = new TextValidator(form.elements.lastname, config.maxLength, config.minLength);
 
-firstname.element.addEventListener("blur", function(){
-    firstname.validate();
-}, true);
-
+firstname.listen();
+lastname.listen();
 
