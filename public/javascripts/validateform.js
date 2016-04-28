@@ -10,7 +10,7 @@ class InputValidator{
     
     validateRequired(){
         if (this.element.value === null || this.element.value === "") {
-            errorEvent(element);
+            this.errorEvent(element);
             return false;
         }    
         return true;
@@ -18,14 +18,14 @@ class InputValidator{
     
     validateEqual(elementB){
        if (this.element.value !== elementb.value) {
-            errorEvent(this.elementa);
-            errorEvent(elementb);
+            this.errorEvent(this.elementa);
+            this.errorEvent(elementb);
         } 
     }
         
     validateFormat(regex){
         if (this.element.value.match(regex)) {
-            errorEvent(this.element);
+            this.errorEvent(this.element);
             return false;
         }
     }
@@ -33,7 +33,6 @@ class InputValidator{
     validateMaxLength(){
         console.log(this.element.value);
         if(this.element.value.length > this.maxLength){
-            
             this.errorEvent();
             return false;
         }
@@ -42,7 +41,7 @@ class InputValidator{
         
     validateMinLength(){
         if (this.element.value.length < this.maxlength) {
-            errorEvent(this.element);
+            this.errorEvent(this.element);
             return false;
         }
     }
@@ -58,10 +57,30 @@ class TextValidator extends InputValidator{
         super(element, maxLength, minLength);
     }
     validate(){
-
+        super.validateRequired();
         super.validateMaxLength();   
     }
   
+}
+
+class EmailValidator extends InputValidator{
+    constructor(element, maxLength, minLength){
+        super(element, maxLength, minLength);
+    }
+    validate(){
+        super.validateRequired();
+        super.validateMaxLength();
+        super.validateFormat(config.emailRegex);
+    }
+}
+
+config ={
+    maxLength : 45;
+    passwordMinLength : 10;
+    zipcodeMaxLength : 11;
+    phoneNumberMaxLength : 11;
+    ssnRegex : "^[12]{1}[90]{1}[0-9]{6}-[0-9]{4}$";
+    emailRegex : "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$";
 }
 
 var form = document.getElementsByClassName("register-form")[0];
