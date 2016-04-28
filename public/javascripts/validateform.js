@@ -75,12 +75,13 @@ class EmailValidator extends InputValidator{
 }
 
 config ={
-    maxLength : 45;
-    passwordMinLength : 10;
-    zipcodeMaxLength : 11;
-    phoneNumberMaxLength : 11;
-    ssnRegex : "^[12]{1}[90]{1}[0-9]{6}-[0-9]{4}$";
-    emailRegex : "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$";
+    maxLength : 45,
+    mnLength : 0,
+    passwordMinLength : 10,
+    zipcodeMaxLength : 11,
+    phoneNumberMaxLength : 11,
+    ssnRegex : "^[12]{1}[90]{1}[0-9]{6}-[0-9]{4}$",
+    emailRegex : "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$"
 }
 
 var form = document.getElementsByClassName("register-form")[0];
