@@ -1,21 +1,32 @@
 // BASE SETUP
 // ===================================
-var express = require("express");
+var express = require('express');
 var app = express();
-var http = require("http").Server(app);
-var path = require("path");
-var mysql = require("mysql");
+var http = require('http').Server(app);
+var path = require('path');
+var mysql = require('mysql');
 var port = 3000;
-app.use(express.static(path.join(__dirname, "public")));
+var sass = require('node-sass');
+var sassMiddleware = require('node-sass-middleware');
+
+app.use(sassMiddleware({
+    /* Options */
+    src: __dirname + '/public/sass',
+    dest: __dirname + '/public/stylesheets',
+    debug: true, 
+    outputStyle: 'compressed',
+    prefix: '/stylesheets'
+}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // ROUTES
 // ===================================
 var router = express.Router();
-require("./routes/routes.js")(router, app);
-app.use("/", router);
+require('./routes/routes.js')(router, app);
+app.use('/', router);
 app.use(function(request, response, next){
-   response.status(404).send("Error 404: Page could not be found!");
+   response.status(404).send('Error 404: Page could not be found!');
 });
 
 // VIEWS

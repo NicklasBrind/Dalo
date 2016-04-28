@@ -9,6 +9,8 @@
     "fb": "^1.0.2",
     "jade": "*",
     "mysql": "*",
+    "node-sass": "^3.6.0",
+    "node-sass-middleware": "^0.9.8",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   },

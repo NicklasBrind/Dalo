@@ -1,0 +1,26 @@
+body {
+    font-family: 'Helvetica Neue', 'Ubuntu', 'Helvetica' !important;
+    margin: 0px;
+    background-color: #fcfcfe;
+    overflow-y: scroll;
+}
+.container {
+    margin-top: 10px;
+    width: 800px !important;
+    margin: 0 auto;
+    
+    /* bootstrap override */
+    list-style: circle !important;
+}
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+ul {
+    margin-left: 10px;
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, 
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-size: 1em !important;
+}

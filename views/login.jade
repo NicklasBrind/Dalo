@@ -3,19 +3,9 @@ html
         link(href="/stylesheets/login_form.css", type="text/css", rel="stylesheet")
     body
         .form
-          form(class="register-form", action="/reg", method="post")
-            input(type='text', placeholder='name')
-            input(type='password', placeholder='password', name="password")
-            input(type='text', placeholder='email address', name="username")
-            button create
-            p.message Already registered? 
-              a(href='#') Sign In
-
           form(class="login-form", action="/login", method="post")
             input(type='text', placeholder='username', name="username")
             input(type='password', placeholder='password', name="password")
             button login
             p.message Not registered? 
-              a(href='#') Create an account
-
-        script(src="/javascripts/sign.js")
+              a(href='/join') Create an account
