@@ -6,6 +6,10 @@ class StringValidator {
         this.rules = [];
     }
     
+    getString() {
+        return this.string;
+    }
+    
     addRule(Rule) {
         this.rules.push(Rule);
     }
@@ -25,6 +29,16 @@ class Rule {
       if (this.constructor === Rule) throw new Error("Cannot instantiate Rule class.");
     }
     check(string) { }
+}
+
+class RuleRequired extends Rule {
+    constructor() {
+        super();
+    }
+    
+    check(string) {
+        return !(string === '' || string === null)
+    }
 }
 
 class RuleMaxLength extends Rule {
@@ -71,8 +85,9 @@ class RuleEqual extends Rule {
 
 module.exports = {
     StringValidator: StringValidator,
+    RuleRequired: RuleRequired,
     RuleMaxLength: RuleMaxLength,
-    RuleMineLength: RuleMinLength,
+    RuleMinLength: RuleMinLength,
     RuleRegex: RuleRegex,
     RuleEqual: RuleEqual
 }
