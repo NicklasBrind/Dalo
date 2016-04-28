@@ -13,7 +13,7 @@ app.use(sassMiddleware({
     /* Options */
     src: __dirname + '/public/sass',
     dest: __dirname + '/public/stylesheets',
-    debug: true, 
+    debug: false, 
     outputStyle: 'compressed',
     prefix: '/stylesheets'
 }));
