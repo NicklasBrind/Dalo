@@ -8,7 +8,14 @@ var mysql = require('mysql');
 var port = 3000;
 var sass = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
+var favicon = require('serve-favicon');
 
+
+// FAVICON
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+
+
+// SASS SETUP
 app.use(sassMiddleware({
     /* Options */
     src: __dirname + '/public/sass',
@@ -18,7 +25,6 @@ app.use(sassMiddleware({
     prefix: '/stylesheets'
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // ROUTES
 // ===================================
