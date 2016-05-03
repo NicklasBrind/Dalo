@@ -9,11 +9,8 @@ var port = 3000;
 var sass = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
 var favicon = require('serve-favicon');
-<<<<<<< HEAD
 var dbconfig = require('./config/database');
-=======
 var bodyparser = require('body-parser');
->>>>>>> refs/remotes/origin/Class-validator
 
 // FAVICON
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
@@ -24,11 +21,7 @@ app.use(sassMiddleware({
     /* Options */
     src: __dirname + '/public/sass',
     dest: __dirname + '/public/stylesheets',
-<<<<<<< HEAD
-    debug: true,
-=======
     debug: false, 
->>>>>>> refs/remotes/origin/Class-validator
     outputStyle: 'compressed',
     prefix: '/stylesheets'
 }));
