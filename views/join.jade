@@ -6,29 +6,14 @@ mixin requiredinput(t, ph, n)
 html
     head
         link(href="/stylesheets/register_form.css", type="text/css", rel="stylesheet")
+        title #{title}
     body
+        h1 #{error}
         .form
           form(class="register-form", action="/join", method="post")
-            +requiredinput("text", "Förnamn", "firstname")
-            +requiredinput("text", "Efternamn", "lastname")
-            +requiredinput("text", "Smeknamn", "nickname")
-            +requiredinput("text", "Personnummer: 910919-1234", "ssn")
-            +requiredinput("email", "homer@dalo.com", "email")
-            +requiredinput("password", "Lösenord", "password")
-            +requiredinput("password", "Lösenord igen", "validpassword")
-            select(name="program")
-                option(value="") Test
-            +requiredinput("month", "Startår", "startdate")
-            +requiredinput("month", "Examensår", "examdate")
-            +requiredinput("text", "Gata", "street")
-            +requiredinput("text", "Postnummer", "zipcode")
-            +requiredinput("text", "Stad", "city")
-            +requiredinput("text", "Land", "country")
-            +requiredinput("text", "Telefonnummer", "phonenumber")
-            +requiredinput("url", "Facebook-url", "facebook")
-            +requiredinput("url", "Linkedin.url", "linkedin")
-            +requiredinput("url", "Github-url", "github")
+            +requiredinput("text", "Email", "username")
+            +requiredinput("text", "Lösenord", "password")
             button(id="submit") create
             p.message Already registered? 
               a(href='#') Sign In
-      script(src="/javascripts/validateform.js")
+      script(src="/javascripts/element-validator.js")
