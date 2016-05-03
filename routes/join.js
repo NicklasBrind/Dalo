@@ -54,6 +54,7 @@ module.exports = function(router, app){
             if(err){
                 return console.log(err);
             }
+            console.log("User created");
             return response.redirect("/");
         });
     
