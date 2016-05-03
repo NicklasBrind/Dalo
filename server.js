@@ -9,7 +9,7 @@ var port = 3000;
 var sass = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
 var favicon = require('serve-favicon');
-var dbconfig = require('./database');
+var dbconfig = require('./config/database');
 
 // FAVICON
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
