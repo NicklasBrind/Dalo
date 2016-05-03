@@ -13,7 +13,6 @@ html
           form(class="register-form", action="/join", method="post")
             +requiredinput("text", "Email", "username")
             +requiredinput("text", "Lösenord", "password")
-            
             button(id="submit") create
             p.message Already registered? 
               a(href='#') Sign In
