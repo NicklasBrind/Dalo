@@ -1,1 +1,1 @@
-start cmd.exe
+start cmd.exe /K "npm install && node server"
