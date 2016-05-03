@@ -1,135 +1,57 @@
 "use strict";
-
-class InputValidator{
-    constructor(element, maxLength, minLength){
-        var self = this;
-        this.element = element;
-        this.maxLength = maxLength;
-        this.minLength = minLength || 0;
-    }
-    validate(){}
-    
-    eventListener(){}
-    
-    validateRequired(){
-        if (this.element.value === null || this.element.value === "") {
-            this.errorEvent(element);
-            return false;
-        }    
-        return true;
-    }
-    
-    validateEqual(elementB){
-       if (this.element.value !== elementb.value) {
-            this.errorEvent(this.elementa);
-            this.errorEvent(elementb);
-        } 
-    }
-        
-    validateFormat(regex){
-        if (this.element.value.match(regex)) {
-            this.errorEvent(this.element);
-            return false;
-        }
-    }
-        
-    validateMaxLength(){
-        console.log(this.element.value);
-        if(this.element.value.length > this.maxLength){
-            this.errorEvent();
-            return false;
-        }
-     
-    }
-        
-    validateMinLength(){
-        if (this.element.value.length < this.maxlength) {
-            this.errorEvent(this.element);
-            return false;
-        }
-    }
-        
-    errorEvent(){
-        alert("error");
-    }
-    
-}
-
-class TextValidator extends InputValidator{
-    constructor(element, maxLength, minLength){
-        super(element, maxLength, minLength);
-    }
-    validate(){
-        super.validateRequired();
-        super.validateMaxLength();   
-    }
-    listen(){
-        var self = this;
-        this.element.addEventListener("blur", function(){
-            self.validate();
-        }, true)
-    }
-  
-}
-
-class SsnValidator extends InputValidator{
-    
-    constructor(element, maxLength, minLength){
-        super(element, maxLength, minLength);
-    }
-    
-    validate(){
-        super.validateRequired();
-        super.validateFormat(config.ssnRegex);
-    }
-    listen(){
-        var self = this;
-        this.element.addEventListener("blur", function(){
-            self.validate();
-        }, true)
-    }
-}
-}
-
-class EmailValidator extends InputValidator{
-    constructor(element, maxLength, minLength){
-        super(element, maxLength, minLength);
-    }
-    validate(){
-        super.validateRequired();
-        super.validateMaxLength();
-        super.validateFormat(config.emailRegex);
-    }
-    listen(){
-        var self = this;
-        this.element.addEventListener("blur", function(){
-            self.validate();
-        }, true)
-    }
-}
-
-
-var config ={
+var config = {
     maxLength : 45,
     minLength : 0,
+    ssnMaxLength : 13,
     passwordMinLength : 10,
-    zipcodeMaxLength : 11,
     phoneNumberMaxLength : 11,
+    zipcodeMaxLength : 11,
     ssnRegex : "^[12]{1}[90]{1}[0-9]{6}-[0-9]{4}$",
     emailRegex : "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$"
 }
 
-var form = document.getElementsByClassName("register-form")[0];
-
-
-var firstname = new TextValidator(form.elements.firstname, config.maxLength, config.minLength);
-var lastname = new TextValidator(form.elements.lastname, config.maxLength, config.minLength);
-var nickname = new textValidator(form.elements.lastname, config.maxLength, config.minLength);
-var ssn = new SsnValidator(form.elemnts.ssn, config.maxLength, config.minLength);
-var email = new EmailValidator(form.elements.email, config.maxLength, config.minLength);
-
-var validatorArray = [firstname, lastname, nickname, ssn, email]
-
-for(var i = 0; i < validatorArray.length; i++){
-    validatorArray[i].listen;
+class Collection{
+    constructor(){
+        this.rules = [];
+        this.param = [];
+        this.valid;
+    }
+    addRule(callback, param){
+        this.rules.push(callback);
+   
+        this.param.push(param);
+    }
+    validate(string){
+        for(var i = 0; i < this.rules.length; i++){
+            this.valid = this.rules[i](string, this.param[i]);
+    
+        }
+    }
+    
 }
+
+function maxLength(string, max){
+    return (string.length < max) ? true : false;
+}
+
+function minLength(string, min){
+    return (string.length > min) ? true : false;
+}
+
+function regexCheck(string, regex){
+    return string.match(regex);
+}
+
+function equalCheck(string, string2){
+    return (string === string2) ? true : false;
+}
+function requiredCheck(string, ignore){
+    return !(string === '' || string === null);
+}
+
+
+var basic = new Collection();
+basic.addRule(requiredCheck, "ignore");
+basic.addRule(maxLength, config.maxLength);
+basic.validate("hej")
+console.log(basic.valid);

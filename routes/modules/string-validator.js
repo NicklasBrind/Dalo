@@ -5,7 +5,9 @@ class StringValidator {
         this.string = string;
         this.rules = [];
     }
-    
+    setString(string){
+        this.string = string
+    }
     getString() {
         return this.string;
     }
