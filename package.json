@@ -7,6 +7,7 @@
     "body-parser": "^1.15.0",
     "dateformat": "^1.0.12",
     "express": "*",
+    "express-session": "^1.13.0",
     "fb": "^1.0.2",
     "jade": "*",
     "mysql": "*",

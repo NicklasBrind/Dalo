@@ -1,12 +1,12 @@
-var navigation = require('./modules/navigation-module');
+var Navigation = require('./modules/navigation-module');
 
-module.exports = function(router, app){
-    router.get('/songs', function(request, response, next){
-        // Get client
+module.exports = function (router, app) {
+    
+    router.get('/songs', function (request, response, next) {
+        var nav = new Navigation(request.session.loggedIn, request.session.role);
         var client = app.get('client');
         
-        navigation.getLoginNavigation(client, function(err, results) {
-            // Render page and send data
+        nav.getLoginNavigation(function (err, results) {
             return response.render('songs', {
                 title: 'Songs - Dalo',
                 login_nav: results

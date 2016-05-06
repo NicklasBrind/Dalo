@@ -1,29 +1,34 @@
-module.exports = {
+"use strict";
+class Navigation{
     /**
      * Gets the member login bar
      * @param  {Object} client - The mysql connection
      * @param  {requestCallback} callback - (error, data)
+     * @param {object} Pass to response
      */
-    getLoginNavigation: function (client, callback) {
-        // TODO: add login check
-        var loggedIn = true;
-        var navigation = [];
-        if (loggedIn) {
+    constructor(loggedIn, role){
+        this.loggedIn = loggedIn;
+        this.role = role;
+        this.navigation = [];
+    }
+    
+    getLoginNavigation(callback){
+         if (this.loggedIn) {
             // Material icons are found here: https://design.google.com/icons/
-            navigation.push( {link: "logout", href: "/logout", materialicon: "directions_run"} );
-            navigation.push( {link: "profile", href: "/profile", materialicon: "account_box"} );
-            navigation.push( {link: "wiki", href: "/wiki", materialicon: "language"} );
+            this.navigation.push( {link: "logout", href: "/logout", materialicon: "directions_run"} );
+            this.navigation.push( {link: "profile", href: "/profile", materialicon: "account_box"} );
+            this.navigation.push( {link: "wiki", href: "/wiki", materialicon: "language"} );
             
             // TODO: add admin check
-            var isAdmin = true;
-            if (isAdmin) {
-                navigation.push( {link: "admin", href: "/admin", materialicon: "build"} );
+            if (this.role === "admin") {
+                this.navigation.push( {link: "admin", href: "/admin", materialicon: "build"} );
             }
+             
         } else {
-            navigation.push( {link: "login", href: "/login", materialicon: "exit_to_app"} );
+            this.navigation.push( {link: "login", href: "/login", materialicon: "exit_to_app"} );
         }
         
-        callback(null, navigation);
+        callback(null, this.navigation);
     }
-};
-    
+}
+module.exports = Navigation;

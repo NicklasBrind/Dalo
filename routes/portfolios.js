@@ -1,10 +1,12 @@
-var navigation = require('./modules/navigation-module');
+var Navigation = require('./modules/navigation-module');
 
 module.exports = function(router, app){
+    
     router.get('/portfolios', function(request, response, next){
-        // Get client
+        var nav = new Navigation(request.session.loggedIn, request.session.role);
         var client = app.get('client');
-        navigation.getLoginNavigation(client, function(err, results) {
+        
+        nav.getLoginNavigation(function(err, results) {
             // Render page and send data
             return response.render('portfolios', {
                 title: 'Portfolios - Dalo',

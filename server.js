@@ -5,53 +5,54 @@ var app = express();
 var http = require('http').Server(app);
 var path = require('path');
 var mysql = require('mysql');
-var port = 3000;
+var port = process.env.PORT || 3000;
 var sass = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
 var favicon = require('serve-favicon');
-var dbconfig = require('./config/database');
 var bodyparser = require('body-parser');
+var session = require('express-session');
+var config = require('./config/config');
 
 // FAVICON
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-// SASS SETUP
+// Options
 app.use(sassMiddleware({
-    /* Options */
-    src: __dirname + '/public/sass',
-    dest: __dirname + '/public/stylesheets',
-    debug: false, 
-    outputStyle: 'compressed',
-    prefix: '/stylesheets'
-}));
+        src : __dirname + '/public/sass',
+        dest : __dirname + '/public/stylesheets',
+        debug: false,
+        outputStyle : 'compressed',
+        prefix : '/stylesheets'
+    }));
+app.use(session(config.session));
 
 // BODY PARSER
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended:false}));
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-// ROUTES
-// ===================================
-var router = express.Router();
-require('./routes/routes.js')(router, app);
-app.use('/', router);
-app.use(function (request, response, next) {
-    response.status(404).send('Error 404: Page could not be found!');
-});
+app.use(bodyparser.urlencoded({extended : false}));
 
 // VIEWS
 // ===================================
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ROUTES
+// ===================================
+var router = express.Router();
+
+require('./routes/routes.js')(router, app);
+app.use('/', router);
+
+app.use(function (request, response, next) {
+    response.status(404).send('Error 404: Page could not be found!');
+});
+
+
 
 // MySQL DATABASE
 // ===================================
-app.set('debugq', true);
-
-// TODO: Create a config for this
-var connection = mysql.createConnection(dbconfig.connection);
+var connection = mysql.createConnection(config.connection);
 
 connection.connect(function (err) {
     if (!err) {

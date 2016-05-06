@@ -1,11 +1,8 @@
-var navigation = require('./modules/navigation-module');
+var Auth = require("./modules/auth-module");
 
 module.exports = function(router, app){
-    
-    router.get('/logout', function(request, response, next){
-        // TODO: destroy session
-       return response.redirect('/');
-    });
+    var auth = new Auth();
+    router.get('/logout', auth.logout);
     
     return router;
 };

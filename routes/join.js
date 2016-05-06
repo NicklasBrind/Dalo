@@ -1,4 +1,4 @@
-var navigation = require('./modules/navigation-module');
+var Navigation = require('./modules/navigation-module');
 var validator = require('./modules/string-validator');
 
 function basicRules(item, max){
@@ -20,8 +20,9 @@ var config = {
 module.exports = function(router, app){
     
     router.get('/join', function(request, response, next){
-        // Get client
+        var nav = new Navigation(request.session.loggedIn, request.session.role);
         var client = app.get('client');
+        
         return response.render('join', { title: 'Join - Dalo',});
     });
     
