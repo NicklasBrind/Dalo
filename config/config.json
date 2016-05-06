@@ -1,0 +1,14 @@
+{
+  connection : {
+    "host" : "host",
+    "port : "port",
+    "user : "user",
+    "password" : "password",
+    "database" : "database"
+  },
+  "session" : {
+    "secret" : "secretString",
+    "resave" : "bool",
+    "saveUninitialzied" : "bool"
+  }
+}
