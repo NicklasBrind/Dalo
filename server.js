@@ -10,6 +10,7 @@ var sass = require('node-sass');
 var sassMiddleware = require('node-sass-middleware');
 var favicon = require('serve-favicon');
 var dbconfig = require('./config/database');
+var bodyparser = require('body-parser');
 
 // FAVICON
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
@@ -20,10 +21,15 @@ app.use(sassMiddleware({
     /* Options */
     src: __dirname + '/public/sass',
     dest: __dirname + '/public/stylesheets',
-    debug: true,
+    debug: false, 
     outputStyle: 'compressed',
     prefix: '/stylesheets'
 }));
+
+// BODY PARSER
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:false}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES

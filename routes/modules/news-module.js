@@ -1,6 +1,7 @@
 var dateFormat = require('dateformat');
 var FB = require('fb');
-FB.setAccessToken('770450599721631|9e89b9476b14a1c908583a6fb6636bd8');
+var config = require("../../config/config");
+FB.setAccessToken(config.FB.access);
 
 module.exports = {
 
