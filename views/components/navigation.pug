@@ -1,0 +1,64 @@
+nav
+    .nav_logo
+        img(class="logo", src="/images/logo.png")
+    .nav_menu  
+        .nav_menu_top
+            a(href="#", style="margin: 0; padding: 0; display: none; padding: 5px 0 0 0;")
+                i(class="flaticon-picture", style="margin: 0; padding: 0; font-size: 100em;")
+            a(href="https://twitter.com/dalomdh", target="_blank", style="margin: 0; padding: 5px 0 0 0;")
+                i(class="flaticon-social-media-1", style="margin: 0; padding: 0; font-size: 1.5em;")
+            a(href="https://www.facebook.com/datalogiforeningen", target="_blank", style="margin: 0; padding: 5px 0 0 0;") 
+                i(class="flaticon-social-media-3", style="margin: 0; padding: 0; font-size: 1.5em;")
+            p |
+            each val, index in loginNav
+ 
+                a(href=loginNav[index].href).nav_menu_top_login
+                    span.link-position=loginNav[index].link
+                    i(class="material-icons link-position", style="margin: 0; padding: 0 0 0 10px; font-size: 1.5em;")=loginNav[index].materialicon
+                p |
+
+        .nav_menu_bottom
+            ul
+                li
+                    a(href="/").nav_link
+                        span.main-nav-item Nyheter
+                li
+                    a(href="/calendar").nav_link 
+                        span.main-nav-item Kalender
+                li
+                    a(href="/partners").nav_link 
+                        span.main-nav-item Samarbetspartners
+                li
+                    a(href="/about").nav_link.nav_dropdown
+                        span.main-nav-item Föreningen
+                        span.arrow-down
+                    ul
+                        li
+                            a(href="/join").nav_sublink
+                                span.main-nav-item Bli medlem
+                        li
+                            a(href="/statutes").nav_sublink 
+                                span.main-nav-item Stadgar
+                        li
+                            a(href="/board").nav_sublink 
+                                span.main-nav-item Styrelsen
+                        li
+                            a(href="/committees").nav_sublink 
+                                span.main-nav-item Utskott
+                        li
+                            a(href="/about").nav_sublink 
+                                span.main-nav-item Om
+                li
+                    a(href="/portfolios").nav_link 
+                        span.main-nav-item Portfolios 
+                li
+                    a(href="/rookieperiod").nav_link nav_dropdown 
+                        span.main-nav-item Rookieperioden 
+                        span.arrow-down
+                    ul
+                        li
+                            a(href="/songs").nav_sublink 
+                                span().main-nav-item Sånger
+                        li
+                            a(href="/rookie_about").nav_sublink 
+                                span.main-nav-item Kontakt

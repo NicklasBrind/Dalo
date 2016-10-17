@@ -2,7 +2,6 @@ mixin requiredinput(t, ph, n)
     .requiredInput
         input(class="required", type=type, placeholder=ph, name=n)
         span
-    
 html
     head
         link(href="/stylesheets/register_form.css", type="text/css", rel="stylesheet")
@@ -13,7 +12,7 @@ html
           form(class="register-form", action="/join", method="post")
             +requiredinput("text", "Email", "username")
             +requiredinput("text", "Lösenord", "password")
-            button(id="submit") create
-            p.message Already registered? 
+            button(type="submit") Skapa nytt konto
+            p.message Redan medlem? 
               a(href='#') Sign In
-      script(src="/javascripts/element-validator.js")
+      script(src="/js/element-validator.js")
