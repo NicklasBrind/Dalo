@@ -6,8 +6,7 @@ var http = require('http').Server(app);
 var path = require('path');
 var mysql = require('mysql');
 var port = 3000;
-var sass = require('node-sass');
-var sassMiddleware = require('node-sass-middleware');
+
 var favicon = require('serve-favicon');
 var dbconfig = require('./config/database');
 var bodyparser = require('body-parser');
@@ -16,15 +15,6 @@ var bodyparser = require('body-parser');
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-// SASS SETUP
-app.use(sassMiddleware({
-    /* Options */
-    src: __dirname + '/public/sass',
-    dest: __dirname + '/public/stylesheets',
-    debug: false, 
-    outputStyle: 'compressed',
-    prefix: '/stylesheets'
-}));
 
 // BODY PARSER
 app.use(bodyparser.json());
@@ -35,8 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ROUTES
 // ===================================
 var router = express.Router();
-require('./routes/routes.js')(router, app);
-app.use('/', router);
+
+
+app.use('/', require('./controllers/controller-index')(router));
 app.use(function (request, response, next) {
     response.status(404).send('Error 404: Page could not be found!');
 });
@@ -44,7 +35,7 @@ app.use(function (request, response, next) {
 // VIEWS
 // ===================================
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // MySQL DATABASE
 // ===================================
