@@ -6,6 +6,7 @@
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.0",
     "co": "^4.6.0",
+    "co-express": "^1.2.2",
     "express": "^4.14.0",
     "fb": "^1.0.2",
     "mysql": "*",
